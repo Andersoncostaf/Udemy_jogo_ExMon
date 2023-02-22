@@ -1,0 +1,42 @@
+>> mix new ex_mon
+
+>>cd ex_mon
+
+>> iex(1)> jogador = %{name: "Anderson", move_avg: :chute, move_rnd: :soco, move_heal: :cura, life: 100}
+
+
+
+>> ir arquivo, e em lib ---> criar o arquivo player.ex.
+
+>> iex -S mix # na raiz do projeto 
+
+e depois fazer..
+
+iex(1)> Ex
+Ex
+iex(2)> ExMon.Player
+
+jogador = %{name: "Anderson", move_avg: :chute, move_rnd: :soco, move_heal: :cura, life: 100}
+
+
+ %ExMon.Player{life: 100, name: "Anderson", move_rnd: :chute, move_avg: :soco, move_heal: :cura}
+
+ExMon.Player.build("Anderson", :chute, :soco, :cura) # consegui !!
+
+---
+
+para instalar uma dependecia
+
+mix deps.get
+
+mix credo
+
+-----
+
+player = ExMon.create_player("Anderson", :chute, :soco, :cura)
+
+ExMon.start_game(player)
+
+ExMon.start_game(player) ou
+ExMon.start_game(player)
+ExMon.Game.info
