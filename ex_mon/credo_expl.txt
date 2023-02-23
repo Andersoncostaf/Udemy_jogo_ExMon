@@ -1,0 +1,25 @@
+O Credo é uma ferramenta de análise de código estática para Elixir que ajuda a identificar problemas e pontos de melhoria no código. Ele verifica o código do projeto em busca de violações de estilo e boas práticas de programação, tais como:
+
+Linhas de código muito longas
+Código duplicado
+Variáveis não utilizadas
+Funções muito complexas
+Uso incorreto de macros
+Inconsistências na nomenclatura
+Comentários inúteis
+E outros problemas relacionados a estilo, formatação e boas práticas de programação.
+O Credo é uma ferramenta útil para garantir que o código esteja organizado e legível, seguindo as melhores práticas de programação. Ele ajuda a manter um código limpo e fácil de entender, o que facilita a manutenção e evolução do projeto.
+
+No arquivo mix.exs, o Credo é incluído como uma dependência de desenvolvimento, como pode ser visto na seção de dependências do tipo :dev:
+
+defp deps do
+  [
+    {:credo, "~> 1.5", only: [:dev, :test]},
+    # outras dependências aqui
+  ]
+end
+
+
+Dessa forma, o Credo é instalado apenas para o ambiente de desenvolvimento e de testes. Após a instalação, é possível executar a ferramenta a partir do terminal, usando o comando mix credo.
+---------------- RESUMO ---------------------------
+Em resumo, o Credo é uma ferramenta de análise de código estática para Elixir que ajuda a identificar problemas e pontos de melhoria no código. Ele é incluído como uma dependência de desenvolvimento no arquivo mix.exs para ajudar a manter um código limpo, organizado e legível, seguindo as melhores práticas de programação.
