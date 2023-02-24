@@ -23,3 +23,6 @@ end
 Dessa forma, o Credo é instalado apenas para o ambiente de desenvolvimento e de testes. Após a instalação, é possível executar a ferramenta a partir do terminal, usando o comando mix credo.
 ---------------- RESUMO ---------------------------
 Em resumo, o Credo é uma ferramenta de análise de código estática para Elixir que ajuda a identificar problemas e pontos de melhoria no código. Ele é incluído como uma dependência de desenvolvimento no arquivo mix.exs para ajudar a manter um código limpo, organizado e legível, seguindo as melhores práticas de programação.
+
+
+---------------------------------------------------

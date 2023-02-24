@@ -40,3 +40,17 @@ ExMon.start_game(player)
 ExMon.start_game(player) ou
 ExMon.start_game(player)
 ExMon.Game.info
+
+
+-----
+
+depois que montou o game dentro da lib
+
+player = ExMon.create_player("Anderson", :chute, :soco, :cura)
+
+ExMon.start_game(player)
+ExMon.Game.Player
+
+ExMon.make_move(:soco)
+
+ExMon.Game.Actions.Attack.attack_opponent(:computer, :soco)

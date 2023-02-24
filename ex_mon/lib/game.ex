@@ -9,6 +9,14 @@ defmodule ExMon.Game do
   def info do
     Agent.get(__MODULE__, & &1)
   end
+
+  def update(state) do 
+    Agent.updata(__MODULE__, fn  -> state end)
+  end
+  
+  def player, do: Map.get(info(), :player)
+  def turn, do: Map.get(info(), :turn)
+  def fetch_player(player), do: Map.get(info(), player )
 end
 
 #O módulo "ExMon.Game" utiliza a biblioteca padrão Agent porque ela é uma escolha comum para gerenciar estados compartilhados em sistemas concorrentes em Elixir. 

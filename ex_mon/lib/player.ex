@@ -1,24 +1,23 @@
-#modulo principal
-
 defmodule ExMon.Player do
-required_keys = [:life, :move_avg, :move_heal, :move_rnd,:name] #defini uma lista de chaves obrig.
-@max_life 100 #constante 
+  required_keys = [:life, :moves, :name] #defini uma lista de chaves obrig.
+  @max_life 100 #constante 
 
-@enforce_keys required_keys
-defstruct required_keys
+  @enforce_keys required_keys
+  defstruct required_keys
 
-def build(name, move_rnd, move_avg, move_heal) do #build new players
-  %ExMon.Player{
-    life: @max_life,
-    move_avg: move_avg,
-    move_heal: move_heal,
-    move_rnd: move_rnd,
-    name: name, 
-
-    
-  }
+  def build(name, move_rnd, move_avg, move_heal) do #build new players
+    %ExMon.Player{
+      life: @max_life,
+      moves: %{
+        move_avg: move_avg,
+        move_heal: move_heal,
+        move_rnd: move_rnd
+      },
+      name: name
+    }
   end
 end
+
   
   #O módulo "ExMon.Player" define uma estrutura de dados para representar um jogador no jogo e fornece uma função para criar novos jogadores.
 

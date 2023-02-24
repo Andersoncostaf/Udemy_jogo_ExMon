@@ -27,3 +27,5 @@ defmodule ExMon.MixProject do
     ]
   end
 end
+
+#CREDO --> Em resumo, o código {:credo, "~> 1.5", only: [:dev, :test], runtime: false} é usado para definir a dependência do Credo com a versão mais recente dentro do intervalo especificado, apenas para os ambientes de desenvolvimento e testes, e não como uma dependência de tempo de execução.
