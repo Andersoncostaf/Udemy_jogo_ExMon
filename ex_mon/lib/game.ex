@@ -1,23 +1,33 @@
 defmodule ExMon.Game do
+  # utiliza o módulo Agent para criar um estado compartilhado do jogo
   use Agent
 
+  # inicia o jogo, criando um estado inicial e iniciando um link do agente
   def start(computer, player) do
     initial_value = %{computer: computer, player: player, turn: :player, status: :started}
     Agent.start_link(fn -> initial_value end, name: __MODULE__)
   end
 
+  # obtém o estado atual do jogo
   def info do
     Agent.get(__MODULE__, & &1)
   end
 
+  # atualiza o estado do jogo
   def update(state) do 
     Agent.update(__MODULE__, fn _ -> state end)
   end
-  
+
+  # obtém o valor da chave :player no estado atual do jogo
   def player, do: Map.get(info(), :player)
+
+  # obtém o valor da chave :turn no estado atual do jogo
   def turn, do: Map.get(info(), :turn)
+
+  # obtém o valor da chave passada como argumento no estado atual do jogo
   def fetch_player(player), do: Map.get(info(), player)
 end
+
 
 
 #O módulo "ExMon.Game" utiliza a biblioteca padrão Agent porque ela é uma escolha comum para gerenciar estados compartilhados em sistemas concorrentes em Elixir. 
