@@ -46,7 +46,7 @@ ExMon.Game.info
 
 depois que montou o game dentro da lib
 
-player = ExMon.create_player("Anderson", :chute, :soco, :cura)
+player = ExMon.create_player('Anderson', :chute, :soco, :cura)
 
 ExMon.start_game(player)
 ExMon.Game.Player
