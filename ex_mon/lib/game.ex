@@ -1,4 +1,5 @@
 defmodule ExMon.Game do
+  alias ExMon.Player
   # utiliza o módulo Agent para criar um estado compartilhado do jogo
   use Agent
 
@@ -15,7 +16,7 @@ defmodule ExMon.Game do
 
   # atualiza o estado do jogo
   def update(state) do 
-    Agent.update(__MODULE__, fn _ -> state end)
+    Agent.update(__MODULE__, fn _ -> update_game_status(state) end)
   end
 
   # obtém o valor da chave :player no estado atual do jogo
@@ -26,6 +27,20 @@ defmodule ExMon.Game do
 
   # obtém o valor da chave passada como argumento no estado atual do jogo
   def fetch_player(player), do: Map.get(info(), player)
+
+  defp update_game_status(%{player: %Player{life: player_life}, computer: %Player{life: computer_life}} = state) 
+    when player_life == 0 or computer_life == 0 
+    do Map.put(state, :status, :game_over)
+  end
+
+  defp update_game_status(state) do
+    state
+    |> Map.put(:status, :continue)
+    |> update_turn()
+  end
+
+  def update_turn(%{turn: :player} = state), do: Map.put(state, :turn, :computer)
+  def update_turn(%{turn: :computer} = state), do: Map.put(state, :turn, :player)
 end
 
 

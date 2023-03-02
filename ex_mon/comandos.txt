@@ -53,4 +53,6 @@ ExMon.Game.Player
 
 ExMon.make_move(:soco)
 
+ExMon.Game.info()
+
 ExMon.Game.Actions.Attack.attack_opponent(:computer, :soco)

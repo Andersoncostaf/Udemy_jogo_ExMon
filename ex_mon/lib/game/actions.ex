@@ -1,4 +1,4 @@
-defmodule ExMon.Game.Actions do 
+ defmodule ExMon.Game.Actions do 
   alias ExMon.Game
   alias ExMon.Game.Actions.Attack
 

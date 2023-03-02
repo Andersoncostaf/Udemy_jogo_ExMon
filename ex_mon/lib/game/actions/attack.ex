@@ -1,6 +1,8 @@
 defmodule ExMon.Game.Actions.Attack do
   # importa o módulo ExMon.Game para usar suas funções
   alias ExMon.Game
+  #outro modulo ExMon.Game.Status
+  alias ExMon.Game.Status
 
   # define o poder dos movimentos de ataque
   @move_avg_power 18..25
@@ -19,7 +21,7 @@ defmodule ExMon.Game.Actions.Attack do
     |> Game.fetch_player()
     |> Map.get(:life)
     |> calculate_total_life(damage)
-    |> update_opponent_life(opponent)
+    |> update_opponent_life(opponent, damage)
 
     # retorna o oponente atualizado
     opponent
@@ -34,17 +36,19 @@ defmodule ExMon.Game.Actions.Attack do
   defp calculate_total_life(life, damage), do: life - damage
 
   # atualiza a vida do oponente no estado do jogo
-  defp update_opponent_life(life, opponent) do
+  defp update_opponent_life(life, opponent, damage) do
      opponent
      |> Game.fetch_player()
      |> Map.put(:life, life)
-     |> update_game(opponent)
+     |> update_game(opponent, damage)
   end
 
-  defp update_game(player, opponent) do 
+  defp update_game(player, opponent, damage) do 
       Game.info()
       |> Map.put(opponent, player)
       |> Game.update()
+
+      Status.print_move_message(opponent, :attack, damage)
     
   end
 end
